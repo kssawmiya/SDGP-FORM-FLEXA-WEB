@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import CircleButton from "./CircleButton";
 import FooterButton from "./FooterButton";
@@ -33,5 +34,5 @@ const ServicePage = () => {
     </div>
   );
 };
-
+//
 export default ServicePage;

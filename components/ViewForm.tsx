@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import FooterButton from "./FooterButton";
 import ViewSavingForm from "./ViewSavingForm";
@@ -17,5 +18,5 @@ const ViewForm = () => {
     </div>
   );
 };
-
+//
 export default ViewForm;

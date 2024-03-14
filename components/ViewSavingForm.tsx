@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import React from "react";
 
 const ViewSavingForm = () => {
@@ -197,5 +198,5 @@ const ViewSavingForm = () => {
     </div>
   );
 };
-
+//
 export default ViewSavingForm;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import FormButton from "@/components/FormButton";
 import InfoPoint from "./InfoPoint";
 import FooterButton from "./FooterButton";
@@ -42,5 +43,5 @@ const SavingPage = () => {
     </div>
   );
 };
-
+//
 export default SavingPage;

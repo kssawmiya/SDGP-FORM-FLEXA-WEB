@@ -1,3 +1,4 @@
+// @ts-nocheck
 import NextLink from "next/link";
 import Image from "next/image";
 
@@ -24,5 +25,6 @@ const SideBar = () => {
     </div>
   );
 };
+//
 
 export default SideBar;

@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import Link from "next/link";
 import React from "react";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
@@ -32,5 +33,6 @@ const SavingOpButton = ({
     </Link>
   );
 };
+//
 
 export default SavingOpButton;

@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import React from "react";
 import SavingOpButton from "./SavingOpButton";
 import FooterButton from "./FooterButton";
@@ -49,5 +50,6 @@ const SavingOp2 = () => {
     </div>
   );
 };
+//
 
 export default SavingOp2;

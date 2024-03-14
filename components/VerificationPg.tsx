@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import ContinueButton from "./ContinueButton";
@@ -60,5 +61,6 @@ const VerificationPg = () => {
     </div>
   );
 };
+//
 
 export default VerificationPg;

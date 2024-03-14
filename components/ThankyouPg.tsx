@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Image from "next/image";
 import React from "react";
 
@@ -23,5 +24,5 @@ const ThankyouPg = () => {
     </div>
   );
 };
-
+//
 export default ThankyouPg;

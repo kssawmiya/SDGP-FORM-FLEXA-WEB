@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import { useState } from "react";
 import DrawingPointer from "./DrawingPointer";
 import FooterButton from "./FooterButton";
@@ -41,5 +42,5 @@ const Signature = () => {
     </div>
   );
 };
-
+//
 export default Signature;

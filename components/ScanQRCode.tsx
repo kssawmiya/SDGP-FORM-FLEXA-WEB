@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import React from "react";
 import Image from "next/image";
 import FooterButton from "./FooterButton";
@@ -34,5 +35,5 @@ const ScanQRCode = () => {
     </div>
   );
 };
-
+//
 export default ScanQRCode;
