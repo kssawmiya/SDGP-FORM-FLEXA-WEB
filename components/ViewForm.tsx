@@ -1,6 +1,6 @@
 import React from "react";
 import FooterButton from "./FooterButton";
-import ViewSavingForm from "./viewSavingForm";
+import ViewSavingForm from "./ViewSavingForm";
 
 const ViewForm = () => {
   return (
