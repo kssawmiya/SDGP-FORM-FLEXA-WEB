@@ -52,7 +52,7 @@ const VerificationPg = () => {
         text-4xl p-20 justify-around"
         >
           <p>Hi! {name},Welcome,to FormFlexa</p>
-          <p>Let's fill your form for you...</p>
+          <p>{`Let's fill your form for you...`}</p>
         </div>
       </div>
       <div className="flex mt-16 ml-auto">
