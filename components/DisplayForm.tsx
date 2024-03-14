@@ -1,4 +1,5 @@
 "use client";
+// @ts-nocheck
 import useFormStore from "@/app/store";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";

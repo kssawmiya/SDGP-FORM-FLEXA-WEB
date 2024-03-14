@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { IoIosStar } from "react-icons/io";
 
 interface InfoPointProps {

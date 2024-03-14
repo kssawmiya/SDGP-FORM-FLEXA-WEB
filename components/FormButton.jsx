@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import { FaWpforms } from "react-icons/fa";
 

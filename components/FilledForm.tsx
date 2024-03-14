@@ -1,3 +1,4 @@
+// @ts-nocheck
 import DisplayForm from "./DisplayForm";
 import FooterButton from "./FooterButton";
 

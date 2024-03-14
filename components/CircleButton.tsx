@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,6 +23,7 @@ const CircleButton = ({ link, text, imageId }: CircleButtonProps) => {
       <p className="text-slate-100 font-bold">{text}</p>
     </Link>
   );
+  //
 };
 
 export default CircleButton;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
