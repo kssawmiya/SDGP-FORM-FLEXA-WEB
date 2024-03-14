@@ -26,7 +26,8 @@
     "react-qr-code": "^2.0.12",
     "react-signature-canvas": "^1.0.6",
     "tailwindcss": "3.4.1",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/qrcode": "^1.5.5",
