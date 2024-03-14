@@ -1,12 +1,15 @@
 import HomePage from "@/components/HomePage";
+import ServicePage from "@/components/ServicePage";
 import SideBar from "@/components/SideBar";
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+const Services = () => {
   return (
     <div className="flex column h-screen">
       <SideBar />
-      <HomePage />
+      <ServicePage />
     </div>
   );
-}
+};
+
+export default Services;
