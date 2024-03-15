@@ -15,7 +15,7 @@ const QRScanButton = ({ link, formId }: QRScanButtonProps) => {
   const [sessionId, setSessionId] = useState<string>(() => {
     const characters = "0123456789";
     let sessionId = "";
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 5; i++) {
       sessionId += characters.charAt(
         Math.floor(Math.random() * characters.length)
       );
