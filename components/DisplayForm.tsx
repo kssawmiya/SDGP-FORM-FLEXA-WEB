@@ -34,6 +34,7 @@ const DisplayForm = ({
     (state: any) => state.mobileBankingChecked
   );
   const signImageUrl = useFormStore((state: any) => state.signImageUrl);
+  const sessionId = useFormStore((state: any) => state.sessionId);
 
   const socketUrl =
     process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
@@ -62,7 +63,7 @@ const DisplayForm = ({
   }, [socket]);
 
   useEffect(() => {
-    socket.emit("join_room", "45");
+    socket.emit("join_room", sessionId);
   }, []);
 
   return (

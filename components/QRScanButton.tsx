@@ -9,6 +9,8 @@ interface QRScanButtonProps {
 }
 
 const QRScanButton = ({ link, formId }: QRScanButtonProps) => {
+  const setSessionIdNew = useFormStore((state: any) => state.setSessionId);
+
   const [sessionId, setSessionId] = useState<string>(() => {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -18,6 +20,7 @@ const QRScanButton = ({ link, formId }: QRScanButtonProps) => {
         Math.floor(Math.random() * characters.length)
       );
     }
+    setSessionIdNew(sessionId);
     return sessionId;
   });
 
