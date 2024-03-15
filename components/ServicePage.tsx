@@ -7,12 +7,12 @@ const ServicePage = () => {
   return (
     <div className="w-4/5  h-screen flex flex-col p-5">
       <div className="flex justify-center">
-        <p className="font-bold text-pink-950 text-4xl font-serif">
+        <p className="font-bold text-fuchsia-900 text-4xl font-serif">
           Please Select the Service Required
         </p>
       </div>
       <div className="w-full p-20">
-        <div className="flex justify-between items-center w-full">
+        <div className="flex justify-between items-center w-full font-serif">
           <CircleButton
             text="Savings Account"
             imageId="1"

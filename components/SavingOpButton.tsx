@@ -25,7 +25,7 @@ const SavingOpButton = ({
     <Link
       onClick={onClick}
       href={link}
-      className={`w-[${width}] h-[${height}] my-gradient border rounded-3xl flex justify-evenly items-center p-10 space-x-2`}
+      className={`w-[${width}] h-[${height}] my-gradient border rounded-3xl flex justify-evenly items-center p-10 space-x-2 shadow shadow-blue-500/40 hover:shadow-indigo-500/40`}
     >
       {isBack && <FaCheckCircle size={50} color="white" />}
       <p className="text-slate-200 text-3xl font-semibold">{text}</p>

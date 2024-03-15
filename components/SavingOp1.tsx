@@ -13,7 +13,7 @@ const SavingOp1 = () => {
   return (
     <div className="w-4/5  h-screen flex flex-col p-20 ">
       <div className="flex items-center justify-center w-full">
-        <p className="text-4xl text-pink-800 font-bold">
+        <p className="text-4xl text-fuchsia-900 font-bold">
           Do you wish to add Moblie/Online Banking
         </p>
       </div>

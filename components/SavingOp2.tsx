@@ -12,7 +12,7 @@ const SavingOp2 = () => {
   return (
     <div className="w-4/5  h-screen flex flex-col p-20 ">
       <div className="flex items-center justify-center w-full">
-        <p className="text-4xl text-pink-800 font-bold mt-7">
+        <p className="text-4xl text-fuchsia-900 font-bold mt-7">
           Do you wish to receive SMS and Emails of your transactions.
         </p>
       </div>

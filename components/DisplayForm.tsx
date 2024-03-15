@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import dotenv from "dotenv";
+import VirtualKeyboard from "./VitualKeyboard";
 dotenv.config();
 
 interface FormAttributes {
@@ -18,13 +19,24 @@ interface FormAttributes {
   };
 }
 
-const DisplayForm = () => {
+interface DisplayFormProps {
+  toggleKeyboard: () => void;
+  inputValue: string;
+  handleInputChange: (input: string) => void;
+}
+
+const DisplayForm = ({
+  toggleKeyboard,
+  inputValue,
+  handleInputChange,
+}: DisplayFormProps) => {
   const mobileBankingChecked = useFormStore(
     (state: any) => state.mobileBankingChecked
   );
   const signImageUrl = useFormStore((state: any) => state.signImageUrl);
 
-  const socketUrl = process.env.SOCKET_IO_URL || "http://localhost:3001"; // Provide a default URL
+  const socketUrl =
+    process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
   const socket = io(socketUrl);
   const [messageReceived, setMessageReceived] = useState("");
 
@@ -64,7 +76,10 @@ const DisplayForm = () => {
                 <input
                   type="text"
                   name="date"
-                  className="border border-black rounded-md w-20"
+                  className="border border-black rounded-md w-24"
+                  value={inputValue}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex space-x-2 p-2">
@@ -73,6 +88,9 @@ const DisplayForm = () => {
                   type="text"
                   name="branch"
                   className="border border-black rounded-md w-32"
+                  value={inputValue}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
             </div>
@@ -84,6 +102,9 @@ const DisplayForm = () => {
                   type="text"
                   name="Account No"
                   className="border border-black rounded-md"
+                  value={inputValue}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </label>
               <label className="p-2 space-x-2 pb-3">
@@ -92,6 +113,9 @@ const DisplayForm = () => {
                   type="text"
                   name="CIF No"
                   className="border border-black rounded-md"
+                  value={inputValue}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </label>
             </div>
@@ -131,7 +155,8 @@ const DisplayForm = () => {
                   name="Full Name"
                   className="border border-black rounded-md w-96"
                   value={name}
-                  // onChange={(e) => setName(e.target.value)}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -141,7 +166,8 @@ const DisplayForm = () => {
                   name="NIC No"
                   className="border border-black rounded-md w-80"
                   value={nic}
-                  // onChange={(e) => setNic(e.target.value)}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -151,7 +177,8 @@ const DisplayForm = () => {
                   name="Passport No"
                   className="border border-black rounded-md w-80"
                   value={passport}
-                  // onChange={(e) => setPassport(e.target.value)}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -161,7 +188,8 @@ const DisplayForm = () => {
                   name="Date of Birth"
                   className="border border-black rounded-md w-52"
                   value={dob}
-                  // onChange={(e) => setDob(e.target.value)}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex border  space-x-5 p-1">
@@ -171,7 +199,8 @@ const DisplayForm = () => {
                   name="Permanent Address"
                   className="border border-black rounded-md w-96"
                   value={address}
-                  // onChange={(e) => setAddress(e.target.value)}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -181,7 +210,8 @@ const DisplayForm = () => {
                   name="Contact Number"
                   className="border border-black rounded-md w-96"
                   value={contactNo}
-                  // onChange={(e) => setContactNo(e.target.value)}
+                  onClick={toggleKeyboard}
+                  onChange={(e) => handleInputChange(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
