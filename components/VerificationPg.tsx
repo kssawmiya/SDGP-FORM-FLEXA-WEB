@@ -12,7 +12,9 @@ interface FormAttributes {
 }
 
 const VerificationPg = () => {
-  const socket = io("http://localhost:3001");
+  const socketUrl =
+    process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
+  const socket = io(socketUrl);
   const [messageReceived, setMessageReceived] = useState("");
 
   const [name, setName] = useState("");
