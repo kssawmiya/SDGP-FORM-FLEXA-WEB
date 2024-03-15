@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import ContinueButton from "./ContinueButton";
 import io from "socket.io-client";
+import useFormStore from "@/app/store";
 
 interface FormAttributes {
   en: {

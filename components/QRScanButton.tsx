@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import QRCode from "react-qr-code";
+import useFormStore from "@/app/store";
 
 interface QRScanButtonProps {
   link: string;
