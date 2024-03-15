@@ -4,6 +4,8 @@ import useFormStore from "@/app/store";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
+import dotenv from "dotenv";
+dotenv.config();
 
 interface FormAttributes {
   en: {
@@ -22,7 +24,8 @@ const DisplayForm = () => {
   );
   const signImageUrl = useFormStore((state: any) => state.signImageUrl);
 
-  const socket = io("http://localhost:3001");
+  const socketUrl = process.env.SOCKET_IO_URL || "http://localhost:3001"; // Provide a default URL
+  const socket = io(socketUrl);
   const [messageReceived, setMessageReceived] = useState("");
 
   const [name, setName] = useState("");
@@ -127,8 +130,8 @@ const DisplayForm = () => {
                   type="text"
                   name="Full Name"
                   className="border border-black rounded-md w-96"
-                  value={name || ""}
-                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  // onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -137,8 +140,8 @@ const DisplayForm = () => {
                   type="text"
                   name="NIC No"
                   className="border border-black rounded-md w-80"
-                  value={nic || ""}
-                  onChange={(e) => setNic(e.target.value)}
+                  value={nic}
+                  // onChange={(e) => setNic(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -147,8 +150,8 @@ const DisplayForm = () => {
                   type="text"
                   name="Passport No"
                   className="border border-black rounded-md w-80"
-                  value={passport || ""}
-                  onChange={(e) => setPassport(e.target.value)}
+                  value={passport}
+                  // onChange={(e) => setPassport(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -157,8 +160,8 @@ const DisplayForm = () => {
                   type="text"
                   name="Date of Birth"
                   className="border border-black rounded-md w-52"
-                  value={dob || ""}
-                  onChange={(e) => setDob(e.target.value)}
+                  value={dob}
+                  // onChange={(e) => setDob(e.target.value)}
                 />
               </div>
               <div className="flex border  space-x-5 p-1">
@@ -167,8 +170,8 @@ const DisplayForm = () => {
                   type="text"
                   name="Permanent Address"
                   className="border border-black rounded-md w-96"
-                  value={address || ""}
-                  onChange={(e) => setAddress(e.target.value)}
+                  value={address}
+                  // onChange={(e) => setAddress(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
@@ -177,8 +180,8 @@ const DisplayForm = () => {
                   type="text"
                   name="Contact Number"
                   className="border border-black rounded-md w-96"
-                  value={contactNo || ""}
-                  onChange={(e) => setContactNo(e.target.value)}
+                  value={contactNo}
+                  // onChange={(e) => setContactNo(e.target.value)}
                 />
               </div>
               <div className="flex border space-x-5 p-1">
