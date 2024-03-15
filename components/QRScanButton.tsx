@@ -13,8 +13,7 @@ const QRScanButton = ({ link, formId }: QRScanButtonProps) => {
   const setSessionIdNew = useFormStore((state: any) => state.setSessionId);
 
   const [sessionId, setSessionId] = useState<string>(() => {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const characters = "0123456789";
     let sessionId = "";
     for (let i = 0; i < 16; i++) {
       sessionId += characters.charAt(
