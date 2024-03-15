@@ -55,7 +55,7 @@ const VerificationPg = () => {
           className="flex flex-col mt-32 text-fuchsia-900 font-serif text-center font-semibold 
         text-4xl p-20 justify-around"
         >
-          <p>Hi! {name},Welcome,to FormFlexa</p>
+          <p>Hi! Welcome,to FormFlexa</p>
           <p>{`Let's fill your form for you...`}</p>
         </div>
       </div>
