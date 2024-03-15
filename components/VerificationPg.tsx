@@ -17,6 +17,7 @@ const VerificationPg = () => {
     process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
   const socket = io(socketUrl);
   const [messageReceived, setMessageReceived] = useState("");
+  const sessionId = useFormStore((state: any) => state.sessionId);
 
   const [name, setName] = useState("");
 
@@ -30,7 +31,7 @@ const VerificationPg = () => {
   }, [socket]);
 
   useEffect(() => {
-    socket.emit("join_room", "45");
+    socket.emit("join_room", sessionId);
   }, []);
   return (
     <div className="w-4/5  h-screen flex flex-col p-20 ">
