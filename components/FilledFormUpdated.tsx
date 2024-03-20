@@ -14,15 +14,48 @@ interface FormAttributes {
   en: {
     address: string;
     name: string;
-    NIC: string;
+    nic: string;
     dob: string;
     passport: string;
     contactNo: string;
     profession: string;
+    email: string;
   };
 }
 
 const FilledFormUpdated = () => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = {
+      formId: sessionId,
+      fullname: name,
+      generalSavings: generalSaving,
+      capitalSavings: capitalSaving,
+      otherSavings: others,
+      addPhone_Email: mobileBankingChecked,
+      sriLankanCitizenship: isSrilankan,
+      otherCitizenship: isOtherCitizenship,
+      address: address,
+      profession: profession,
+      dob: dob,
+      passport: passport,
+      nic: nic,
+      email: email,
+      contactNo: contactNo,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://kafka-backend.onrender.com/api/v1/KafkaForm/sendMessage",
+        formData
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error sending form data:", error);
+    }
+  };
+
   const mobileBankingChecked = useFormStore(
     (state: any) => state.mobileBankingChecked
   );
@@ -38,6 +71,7 @@ const FilledFormUpdated = () => {
   const [name, setName] = useState("");
   const [nic, setNic] = useState("");
   const [dob, setDob] = useState("");
+  const [email, setEmail] = useState("");
   const [passport, setPassport] = useState("");
   const [address, setAddress] = useState("");
   const [contactNo, setContactNo] = useState("");
@@ -46,7 +80,12 @@ const FilledFormUpdated = () => {
   const [accountNo, setAccountNo] = useState("");
   const [CIF, setCIF] = useState("");
   const [profession, setProfession] = useState("");
+  const [generalSaving, setGeneralSaving] = useState(false);
+  const [capitalSaving, setCapitalSaving] = useState(false);
+  const [others, setOthers] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [isSrilankan, setIsSrilankan] = useState(false);
+  const [isOtherCitizenship, setIsOtherCitizenship] = useState(false);
   const [focus, setFocus] = useState("");
 
   useEffect(() => {
@@ -61,6 +100,7 @@ const FilledFormUpdated = () => {
       setAddress(en.address);
       setContactNo(en.contactNo);
       setProfession(en.profession);
+      setEmail(en.email);
     });
   }, [socket]);
 
@@ -112,6 +152,10 @@ const FilledFormUpdated = () => {
     setProfession(event.target.value);
   };
 
+  const handleChange12 = (event) => {
+    setEmail(event.target.value);
+  };
+
   const onChange = (input) => {
     console.log("Input changed", input);
     if (focus == "name") {
@@ -136,6 +180,8 @@ const FilledFormUpdated = () => {
       setContactNo(input);
     } else if (focus == "profession") {
       setProfession(input);
+    } else if (focus == "email") {
+      setEmail(input);
     }
   };
 
@@ -167,7 +213,7 @@ const FilledFormUpdated = () => {
         className="w-4/5 h-4/5 border-fuchsia-900 ml-28 mt-7 rounded-xl border-4"
         style={{ overflowY: "auto" }}
       >
-        <div className="bg-white w-[650px] h-[1020px] border border-black ml-52">
+        <div className="bg-white w-[650px] h-[1040px] border border-black ml-52">
           <form>
             <div className="flex justify-between pb-3">
               <div className="flex flex-col">
@@ -233,15 +279,30 @@ const FilledFormUpdated = () => {
               <div className="flex justify-between">
                 <div className="flex space-x-2">
                   <label>General Saving</label>
-                  <input type="checkbox" name="language" />
+                  <input
+                    type="checkbox"
+                    name="language"
+                    checked={generalSaving}
+                    onChange={(e) => setGeneralSaving(e.target.checked)}
+                  />
                 </div>
                 <div className="flex space-x-2">
                   <label>Capital Saving</label>
-                  <input type="checkbox" name="language" />
+                  <input
+                    type="checkbox"
+                    name="language"
+                    checked={capitalSaving}
+                    onChange={(e) => setCapitalSaving(e.target.checked)}
+                  />
                 </div>
                 <div className="flex space-x-2">
                   <label>Others</label>
-                  <input type="checkbox" name="language" />
+                  <input
+                    type="checkbox"
+                    name="language"
+                    checked={others}
+                    onChange={(e) => setOthers(e.target.checked)}
+                  />
                 </div>
               </div>
             </div>
@@ -328,7 +389,7 @@ const FilledFormUpdated = () => {
                   <label>7. Occupation</label>
                   <input
                     type="text"
-                    name="Contact Number"
+                    name="Occupation"
                     className="border border-black rounded-md w-96"
                     value={profession}
                     onFocus={() => setVisible(true)}
@@ -337,19 +398,41 @@ const FilledFormUpdated = () => {
                   />
                 </div>
                 <div className="flex border space-x-5 p-1">
-                  8. Citizenship :
+                  <label>8. Email</label>
+                  <input
+                    type="text"
+                    name="Email"
+                    className="border border-black rounded-md w-96"
+                    value={email}
+                    onFocus={() => setVisible(true)}
+                    onChange={handleChange12}
+                    onClick={() => setFocus("email")}
+                  />
+                </div>
+                <div className="flex border space-x-5 p-1">
+                  9. Citizenship :
                   <div className="flex space-x-1">
                     <label>Srilankan</label>
-                    <input type="checkbox" name="Srilankan" />
+                    <input
+                      type="checkbox"
+                      name="Srilankan"
+                      checked={isSrilankan}
+                      onChange={(e) => setIsSrilankan(e.target.checked)}
+                    />
                   </div>
                   <div className="flex space-x-1">
                     <label>Others</label>
-                    <input type="checkbox" name="Others" />
+                    <input
+                      type="checkbox"
+                      name="Others"
+                      checked={isOtherCitizenship}
+                      onChange={(e) => setIsOtherCitizenship(e.target.checked)}
+                    />
                   </div>
                 </div>
 
                 <div className="flex border space-x-5 p-1">
-                  <label>9. Signature :</label>
+                  <label>10. Signature :</label>
                   <div>
                     <Image
                       src={signImageUrl}
@@ -410,13 +493,18 @@ const FilledFormUpdated = () => {
         </div>
       </div>
       <div className="flex mt-[40px] justify-between">
-        <FooterButton link="/services/thankYou" text="Print" isBack={""} />
+        <FooterButton
+          link="/services/thankYou"
+          text="Print"
+          isBack={""}
+          onClick={handleSubmit}
+        />
       </div>
 
       {visible && (
         <div
           ref={keyboardContainerRef}
-          className="absolute flex items-center justify-center mt-[500px] ml-[400px] w-[900px] bg-fuchsia-900 p-5 border rounded-2xl"
+          className="absolute flex items-center justify-center mt-[550px] ml-[400px] w-[900px] bg-fuchsia-900 p-5 border rounded-2xl"
         >
           <Keyboard
             theme={"hg-theme-default hg-layout-default myTheme simple-keyboard"}
