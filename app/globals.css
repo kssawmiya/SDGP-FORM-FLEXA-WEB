@@ -23,3 +23,9 @@ body {
     @apply bg-gradient-to-b from-fuchsia-300 to-fuchsia-950 via-fuchsia-600;
   }
 }
+
+label {
+  color: #000; /* Set the text color */
+  font-size: 14px; /* Set the font size */
+  /* Add any other necessary styles */
+}
