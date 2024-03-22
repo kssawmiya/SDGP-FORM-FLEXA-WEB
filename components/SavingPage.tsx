@@ -19,7 +19,7 @@ const SavingPage = () => {
         <p className="text-fuchsia-900 text-4xl font-bold mb-5">Requirements</p>
         <div>
           <InfoPoint text="You have to be above 18+" />
-          <InfoPoint text="You have to possess with NIC/Passport to prove your identification" />
+          <InfoPoint text="You have to prossess with NIC/Passport to prove your identification" />
         </div>
       </div>
 
