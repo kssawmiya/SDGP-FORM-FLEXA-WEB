@@ -16,7 +16,7 @@ const VerificationPg = () => {
 
   const message = useFormStore((state: any) => state.message);
   useEffect(() => {
-    if (message != undefined) {
+    if (message != undefined && message != "{}") {
       const { en }: FormAttributes = JSON.parse(message);
       setName(en.name);
     }

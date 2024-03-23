@@ -17,7 +17,7 @@ const useFormStore = create<FormState>((set) => ({
   signImageUrl: "",
   sessionId: "",
   name: "",
-  message: "",
+  message: "{}",
   setSessionId: (session) => set({ sessionId: session }),
   setMobileBankingChecked: (checked) => set({ mobileBankingChecked: checked }),
   setSignImageUrl: (url) => set({ signImageUrl: url }),

@@ -78,7 +78,7 @@ const FilledFormUpdated = () => {
   const [focus, setFocus] = useState("");
 
   useEffect(() => {
-    if (message != undefined) {
+    if (message != undefined && message != "{}") {
       const { en }: FormAttributes = JSON.parse(message);
       setMessageReceived(message);
       setNic(en.NIC);

@@ -53,11 +53,6 @@ const QRScanButton = ({ link, formId }: QRScanButtonProps) => {
   return (
     <Link href={link} className="flex justify-evenly items-center flex-col">
       <QRCode value={qrCodeValue} />
-      <div>
-        <p>
-          {formId},{sessionId}
-        </p>
-      </div>
     </Link>
   );
 };

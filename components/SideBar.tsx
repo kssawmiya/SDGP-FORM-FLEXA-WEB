@@ -6,7 +6,7 @@ import Link from "next/link";
 const SideBar = () => {
   return (
     <div className="bg-slate-600 w-1/5 flex justify-around flex-col items-center h-screen my-gradient">
-      <Link href="/services/Home">
+      <Link href="/">
         <Image
           className="mt-10"
           src="/images/mainLogo.png"
