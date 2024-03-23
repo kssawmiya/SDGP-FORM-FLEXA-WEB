@@ -1,6 +1,6 @@
 import SideBar from "@/components/SideBar";
 import VerificationPg from "@/components/VerificationPg";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
   return (

@@ -6,23 +6,10 @@ import Keyboard from "react-simple-keyboard";
 import useFormStore from "@/app/store";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import io, { Socket } from "socket.io-client";
+// import io, { Socket } from "socket.io-client";
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
-
-interface FormAttributes {
-  en: {
-    address: string;
-    name: string;
-    nic: string;
-    dob: string;
-    passport: string;
-    contactNo: string;
-    profession: string;
-    email: string;
-  };
-}
 
 const FilledFormUpdated = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -62,11 +49,12 @@ const FilledFormUpdated = () => {
   );
 
   const signImageUrl = useFormStore((state: any) => state.signImageUrl);
-  const sessionId = useFormStore((state: any) => state.sessionId);
+  // const sessionId = useFormStore((state: any) => state.sessionId);
+  const message = useFormStore((state: any) => state.message);
 
-  const socketUrl =
-    process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
-  const socket: Socket = io(socketUrl);
+  // const socketUrl =
+  //   process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
+  // const socket: Socket = io(socketUrl);
   const [messageReceived, setMessageReceived] = useState("");
 
   const [name, setName] = useState("");
@@ -90,10 +78,9 @@ const FilledFormUpdated = () => {
   const [focus, setFocus] = useState("");
 
   useEffect(() => {
-    socket.on("receive_message", (data) => {
-      const { en }: FormAttributes = JSON.parse(data.message);
-
-      setMessageReceived(data.message);
+    if (message != undefined) {
+      const { en }: FormAttributes = JSON.parse(message);
+      setMessageReceived(message);
       setNic(en.NIC);
       setName(en.name);
       setDob(en.dob);
@@ -102,12 +89,12 @@ const FilledFormUpdated = () => {
       setContactNo(en.contactNo);
       setProfession(en.profession);
       setEmail(en.email);
-    });
-  }, [socket]);
+    }
+  }, [message]);
 
-  useEffect(() => {
-    socket.emit("join_room", sessionId);
-  }, []);
+  // useEffect(() => {
+  //   socket.emit("join_room", sessionId);
+  // }, []);
 
   const handleChange = (event) => {
     setName(event.target.value);

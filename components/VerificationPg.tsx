@@ -3,7 +3,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import ContinueButton from "./ContinueButton";
-import io from "socket.io-client";
 import useFormStore from "@/app/store";
 
 interface FormAttributes {
@@ -13,26 +12,16 @@ interface FormAttributes {
 }
 
 const VerificationPg = () => {
-  const socketUrl =
-    process.env.SOCKET_IO_URL || "https://sdgp-50-server-1.onrender.com"; // Provide a default URL
-  const socket = io(socketUrl);
-  const [messageReceived, setMessageReceived] = useState("");
-  const sessionId = useFormStore((state: any) => state.sessionId);
-
   const [name, setName] = useState("");
 
+  const message = useFormStore((state: any) => state.message);
   useEffect(() => {
-    socket.on("receive_message", (data) => {
-      const { en }: FormAttributes = JSON.parse(data.message);
-
-      setMessageReceived(data.message);
+    if (message != undefined) {
+      const { en }: FormAttributes = JSON.parse(message);
       setName(en.name);
-    });
-  }, [socket]);
+    }
+  }, [message]);
 
-  useEffect(() => {
-    socket.emit("join_room", sessionId);
-  }, []);
   return (
     <div className="w-4/5  h-screen flex flex-col p-20 ">
       <div className="flex items-center justify-center w-full mr-6">
@@ -55,7 +44,7 @@ const VerificationPg = () => {
           className="flex flex-col mt-32 text-fuchsia-900 font-serif text-center font-semibold 
         text-4xl p-20 justify-around"
         >
-          <p>Hi! Welcome,to FormFlexa</p>
+          <p>{`Hi ${name}! Welcome,to FormFlexa`}</p>
           <p>{`Let's fill your form for you...`}</p>
         </div>
       </div>
