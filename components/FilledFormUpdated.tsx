@@ -457,9 +457,9 @@ const FilledFormUpdated = () => {
                 <p className="font-semibold text-white bg-fuchsia-800 w-[650px] text-center p-1">
                   DECLARATION
                 </p>
-                <p className="p-2">
+                <p className="p-2 text-black">
                   ELECTRONIC FUND TRANSFER CARD (EFTC)
-                  <p className="text-justify p-1">
+                  <p className="text-justify p-1 text-black">
                     1. I hereby confirm that I am aware of the terms and
                     conditions applicable for the use of Electronic Fund
                     Transfer Cards (the EFTC) as detailed in the Directions No.
@@ -468,7 +468,7 @@ const FilledFormUpdated = () => {
                     subject to which the card may be used for transactions
                   </p>
                   <br />
-                  <p className="text-justify p-1">
+                  <p className="text-justify p-1 text-black">
                     2. I further agree to provide any information on
                     transactions carried out by me in foreign exchange on the
                     card issued to me as Hatton National Bank PLC (the Bank) may
