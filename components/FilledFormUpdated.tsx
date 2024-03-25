@@ -35,7 +35,7 @@ const FilledFormUpdated = () => {
 
     try {
       const response = await axios.post(
-        "https://kafka-backend.onrender.com/api/v1/KafkaForm/sendMessage",
+        "http://192.168.219.20:9092/api/v1/KafkaForm/sendMessage",
         formData
       );
       console.log(response.data);
